@@ -1,0 +1,16 @@
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.csproj.AssemblyReference.cache
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.AssemblyInfoInputs.cache
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.AssemblyInfo.cs
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.csproj.CoreCompileInputs.cache
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.exe
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.deps.json
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.runtimeconfig.json
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.runtimeconfig.dev.json
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.dll
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\ref\Binary Search Tree.dll
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\bin\Debug\net5.0\Binary Search Tree.pdb
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.dll
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\ref\Binary Search Tree.dll
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.pdb
+C:\Data Structures and Algorithms\CS-DSA-Algorithms-.NET\Data Structures\Binary Search Tree\obj\Debug\net5.0\Binary Search Tree.genruntimeconfig.cache

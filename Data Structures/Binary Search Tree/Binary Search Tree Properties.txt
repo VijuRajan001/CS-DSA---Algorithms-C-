@@ -1,0 +1,98 @@
+
+1. 
+  A Binary Search Tree (BST) is a tree in which all the nodes follow the below-mentioned properties −
+  - The value of the key of the left sub-tree is less than the value of its parent (root) node's key.
+  - The value of the key of the right sub-tree is greater than or equal to the value of its parent (root)
+    node's key.
+    left_subtree (keys) < node (key) ≤ right_subtree (keys)
+
+    A binary tree with height h can have at most 2⁰+2¹+···+2ʰ = 2⁽ʰ⁺¹⁾−1 nodes.
+    n ≤ 2⁽ʰ⁺¹⁾ − 1
+    h ≥ ⌈log₂(n+1) - 1⌉ ≥ ⌊log₂(n)⌋
+
+2.
+Basic Operations
+  Following are the basic operations of a tree −
+  Search − Searches an element in a tree.  - Time Complexity O(h)  Worst O(n)
+  Insert − Inserts an element in a tree.   - Time Complexity O(h)  Worst O(n)
+  Deletion - Deletes an element in a tree  - Time Complexity O(h)  Worst O(n)
+  RotateRight - 
+  RotateLeft -
+  Pre-order Traversal − Traverses a tree in a pre-order manner. (usefult for creation of BST)
+  In-order Traversal − Traverses a tree in an in-order manner. 
+      - gives output in ascending order
+      - reversing in-order traversal gives ouput in descending order
+  Post-order Traversal − Traverses a tree in a post-order manner. (useful for bootom up solutions)
+
+
+3. 
+  BST worst case performance is O(n) linear time
+  This usually happens when input of binry tree is in sorted order.
+  Ascending sorted input will create a left skewed tree
+  Descending sorted input will create a right skewed tree
+
+4.
+  Height Balanced Binary Tree
+  Skewed Trees are not good for searching hence we need to Balance the Binary Tree
+  BalanceFactor = height(left-sutree) − height(right-sutree) <=1
+  Searching: Has worst case complexity of O(log2n).
+  Insertion: Has worst case complexity of O(log2n).
+  Deletion: Has worst case complexity of O(log2n).
+
+
+5.
+  - PreOrder Traversal is best to create a height balanced Binary search tree
+  - Lowest Common Ancestor can be got from the first node to the right of the two search nodes
+    in Pre-Order traversal
+  - For Complex Objects and real world data we need to implement 
+    custom Comparators to determine sequence in wihich BST will store the data
+
+
+6.
+  Morris Traversto traverse with 0(1) space uses next nodes
+
+7. 
+Bottom-up approach prefered for all solutions
+
+9 
+Try to think which traversal is useful and why -> Brute Force -> Bottom up || check if node can be modified
+
+
+
+Basic Questions
+Recursive/Iterative (BFS|| DFS)
+
+1. In-Order Traversal of Binary Search Tree
+2. Pre-Order Traversal of Binary Search Tree
+3. Post-Order Traversal of Binary Search Tree
+4. Creating Binary Tree from In-Order,Pre-Order and Post-Order Traversal
+5. Find a key value in BST
+6. Insert Node in a BST
+8. Remove a Node in BST
+9. Validate BST
+10. Distinct Paths to leaf nodes
+11. Return List of Paths from root to leaf nodes
+12. In-Order Successor
+13. In-Order Predecessor
+14. Morris Traversal
+15. Pre-Order successor node
+16. Pre-Order predecessor of BST
+17. Find Parent of a node in BST
+18. Left View of BST
+19. Right View of BST
+20. Bottom View of BST
+21. Top View of BST
+22. LCA of two nodes in BST
+23. BST InOrder Iterator
+24. Height of a node in BST
+25. Max Height of a node in BST
+26. Max Diameter of a BST
+27. Mode of a BST
+28. Array representation of Binary search tree
+29. Find Closest entries in 3 sorted arrays
+30 Enumerate numbers of the for a + sq.Root(b)
+31. Most visited pages Problems
+32. Build minimum height BST from sorted array 
+33. Test if three BST Nodes are totally ordered
+34. Range Lookup Problems
+35. Add credits
