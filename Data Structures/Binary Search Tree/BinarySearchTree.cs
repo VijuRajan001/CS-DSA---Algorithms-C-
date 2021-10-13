@@ -136,7 +136,7 @@ namespace Binary_Search_Tree
 
         public void IntersectWith(IEnumerable<T> other)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); 
         }
 
         public bool IsProperSubsetOf(IEnumerable<T> other)
