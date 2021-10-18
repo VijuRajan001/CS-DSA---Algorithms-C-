@@ -249,6 +249,54 @@ namespace Binary_Search_Tree
 
         }
 
+        internal virtual Node<T> FindPreOrderSucessor(Node<T> node,T item,Stack<Node<T>> parents)
+        {
+            //25,15,10,4,12,22,18,24,50,35,31,44,70,66,90
+            if (node == null)
+                return null;
+            var order = comparer.Compare(item,node.Item);
+            
+            if(order == 0)
+            {
+
+                if(node.Left is not null ) return node.Left;
+                else if(node.Right is not null) return node.Right;
+                else
+                {
+                    //node is a leaf node ans is is ancestor which has a right subtree
+                    while(parents.Count > 0)
+                    {
+                        var parent = parents.Pop();                      
+
+                        if(parent.Right != null && comparer.Compare(item,parent.Right.Item) != 0)
+                            return parent.Right;
+                    }
+
+                    return null;
+
+                }
+            }
+            else if(order < 0)
+            {
+                parents.Push(node);
+                return FindPreOrderSucessor(node.Left,item,parents);
+            }
+            else
+            {
+                parents.Push(node);
+                return FindPreOrderSucessor(node.Right,item,parents);
+            }
+            
+        }
+
+        public Node<T> PreOrderSucessor(T item)
+        {
+            Stack<Node<T>> stack = new Stack<Node<T>>();
+
+            return FindPreOrderSucessor(root,item,stack);
+        }
+
+
         internal virtual bool PostOrder(Predicate<Node<T>> action, Node<T> node)
         {
             if (node == null)
