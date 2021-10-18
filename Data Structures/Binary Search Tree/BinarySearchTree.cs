@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Binary_Search_Tree
 {
@@ -264,15 +265,21 @@ namespace Binary_Search_Tree
                 else
                 {
                     //node is a leaf node ans is is ancestor which has a right subtree
-                    while(parents.Count > 0)
-                    {
-                        var parent = parents.Pop();                      
+                    var current  = node;
+                    var parent = parents.Any() ? parents.Peek() : null;;
 
-                        if(parent.Right != null && comparer.Compare(item,parent.Right.Item) != 0)
-                            return parent.Right;
+                    while(parents.Count > 0 && parent.Right == current)
+                    {
+                        parent = parents.Pop();   
+                         current = parent;
                     }
 
+                // If we reached root, then the given
+                // node has no preorder successor
+                 if (parent == null)
                     return null;
+ 
+                return parent.Right;
 
                 }
             }
@@ -311,6 +318,53 @@ namespace Binary_Search_Tree
 
             return true;
 
+        }
+
+        internal virtual Node<T> FindPostOrderSucessor(Node<T> node,T item,Node<T> parent)
+        {
+            //25,15,10,4,12,22,18,24,50,35,31,44,70,66,90
+            if (node == null)
+                return null;
+            var order = comparer.Compare(item,node.Item);
+            
+            if(order == 0)
+            {
+                var isLeft = false;
+                if(parent == null ) return null;
+
+                if(parent.Left is null) return parent;
+
+                if(parent.Right is null) return parent;
+
+                
+                // We found the element with both left and right nodes
+
+                isLeft = comparer.Compare(item,parent.Left.Item) == 0 ? true : false;
+
+                if(isLeft)
+                    FindMinimum(parent.Right);
+
+                return parent;
+
+            }
+            else if(order < 0)
+            {
+                parent =node;
+                return FindPostOrderSucessor(node.Left,item,parent);
+            }
+            else
+            {
+                parent =node;
+                return FindPostOrderSucessor(node.Right,item,parent);
+            }
+            
+        }
+
+        public Node<T> PostOrderSucessor(T item)
+        {
+            
+
+            return FindPostOrderSucessor(root,item,null);
         }
 
         public void Validate()
