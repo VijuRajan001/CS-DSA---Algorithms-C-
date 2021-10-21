@@ -34,6 +34,7 @@ x64/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+*.dll
 *_i.c
 *_p.c
 *.ilk
@@ -223,3 +224,55 @@ project.lock.json
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.deps.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.dll
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.exe
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.pdb
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.runtimeconfig.dev.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.runtimeconfig.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/ref/Binary Search Tree.dll
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.dgspec.json
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.g.props
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.g.targets
+Data Structures/Binary Search Tree/obj/project.assets.json
+Data Structures/Binary Search Tree/obj/project.nuget.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+Data Structures/Binary Search Tree/obj/Debug/net5.0/apphost.exe
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.AssemblyInfo.cs
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.AssemblyInfoInputs.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.assets.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.AssemblyReference.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.CoreCompileInputs.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.FileListAbsolute.txt
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.dll
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.GeneratedMSBuildEditorConfig.editorconfig
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.genruntimeconfig.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.pdb
+Data Structures/Binary Search Tree/obj/Debug/net5.0/ref/Binary Search Tree.dll
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.deps.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.dll
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.exe
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.pdb
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.runtimeconfig.dev.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.runtimeconfig.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/ref/Binary Search Tree.dll
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.dgspec.json
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.g.props
+Data Structures/Binary Search Tree/obj/Binary Search Tree.csproj.nuget.g.targets
+Data Structures/Binary Search Tree/obj/project.assets.json
+Data Structures/Binary Search Tree/obj/project.nuget.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+Data Structures/Binary Search Tree/obj/Debug/net5.0/apphost.exe
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.AssemblyInfo.cs
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.AssemblyInfoInputs.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.assets.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.AssemblyReference.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.CoreCompileInputs.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.csproj.FileListAbsolute.txt
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.dll
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.GeneratedMSBuildEditorConfig.editorconfig
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.genruntimeconfig.cache
+Data Structures/Binary Search Tree/obj/Debug/net5.0/Binary Search Tree.pdb
+Data Structures/Binary Search Tree/obj/Debug/net5.0/ref/Binary Search Tree.dll
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.deps.json
+Data Structures/Binary Search Tree/bin/Debug/net5.0/Binary Search Tree.deps.json

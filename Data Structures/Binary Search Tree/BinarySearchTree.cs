@@ -48,6 +48,7 @@ namespace Binary_Search_Tree
             }
         }
 
+
         #endregion
 
         /*Count is an important factor in a binary tree*/
@@ -121,6 +122,99 @@ namespace Binary_Search_Tree
         {
             throw new NotImplementedException();
         }
+
+        public Node<T> CreateFromInOrder(T[] items)
+        {
+
+            return BuildTreeFromInOrder(items, 0, items.Length);
+        }
+
+        public Node<T> CreateFromPostOrder(T[] items)
+        {
+            return new Node<T>();
+        }
+
+        /* It is O(N^2)*/
+        public Node<T> BuildTreePreOrderON2(T[] items, int start, int end)
+        {
+
+            if(start == end) return new Node<T>(items[start]);
+
+            if(start>end) return null;
+
+            Node<T> node = new Node<T>(items[start]);
+
+            var PivotIndex = start + 1;
+            for (; PivotIndex <= end; PivotIndex++)
+                if (comparer.Compare(items[PivotIndex], items[start]) > 0)
+                    break;
+
+
+
+            node.Left = BuildTreePreOrderON2(items, start + 1, PivotIndex - 1);
+
+            node.Right = BuildTreePreOrderON2(items, PivotIndex, end);
+
+            return node;
+        }
+
+        public Node<T> BuildTreePostOrderON(T[] items, ref int index, T limit)
+        {
+
+            if(index == items.Length || comparer.Compare(items[index],limit) < 0 ) return null;
+
+            Node<T> node = new Node<T>(items[index]);
+            index--;
+            
+            node.Right = BuildTreePostOrderON(items, ref index, node.Item);
+
+            node.Left = BuildTreePostOrderON(items, ref index, limit);
+
+            
+
+            return node;
+        }
+
+        public Node<T> BuildTreePreOrderON(T[] items, ref int index, T limit)
+        {
+
+            if(index == -1 || comparer.Compare(items[index],limit) > 0 ) return null;
+
+            Node<T> node = new Node<T>(items[index]);
+            index++;
+            
+            node.Left = BuildTreePreOrderON(items, ref index, node.Item);
+
+            node.Right = BuildTreePreOrderON(items, ref index, limit);
+
+            return node;
+        }
+
+
+        public Node<T> BuildTreeFromInOrderON(T[] items, int start, int end)
+        {
+
+            if(start > end ) return null;
+
+            var mid = (start + end)/2;
+            
+            Node<T> node = new Node<T>(items[mid]);
+
+            node.Left = BuildTreeFromInOrderON(items, start, mid-1);
+
+            node.Right = BuildTreeFromInOrderON(items, mid+1, end);
+
+            return node;
+        }
+        public  Node<T> CreateFromPreOrder(T[] items)
+        {
+            // var root = BuildTreePreOrderON2(items, 0, items.Length);
+            int index = 0;
+            var root = BuildTreePreOrderON(items, ref index, GetType(T).max);
+
+             return root;
+        }
+
 
         public void FindAll()
         {
@@ -202,20 +296,23 @@ namespace Binary_Search_Tree
             else if (order < 0)
             {
 
-                FindInOrderSuccessor(node.Left, item);
+                FindInOrderPredecessor(node.Left, item);
             }
             else if (order > 0)
             {
                 predecessor = node;
-                FindInOrderSuccessor(node.Right, item);
+                FindInOrderPredecessor(node.Right, item);
             }
 
             return predecessor is not null ? predecessor : null;
 
         }
+
+
+
         public Node<T> InOrderPredecessor(T item)
         {
-            return FindInOrderPredecessor(root,item);
+            return FindInOrderPredecessor(root, item);
         }
 
         internal virtual bool InOrder(Predicate<Node<T>> action, Node<T> node, bool reverse = false)
@@ -250,57 +347,102 @@ namespace Binary_Search_Tree
 
         }
 
-        internal virtual Node<T> FindPreOrderSucessor(Node<T> node,T item,Stack<Node<T>> parents)
+        internal virtual Node<T> FindPreOrderPredecessor(Node<T> node, T item, Node<T> parent)
         {
             //25,15,10,4,12,22,18,24,50,35,31,44,70,66,90
             if (node == null)
                 return null;
-            var order = comparer.Compare(item,node.Item);
-            
-            if(order == 0)
+            var order = comparer.Compare(item, node.Item);
+
+            if (order == 0)
+            {
+                var isLeft = false;
+                if (parent == null) return null;
+
+                if (parent.Left is null) return parent;
+
+                if (parent.Right is null) return parent;
+
+
+                // We found the element with both left and right nodes
+
+                isLeft = comparer.Compare(item, parent.Left.Item) == 0 ? true : false;
+
+                if (!isLeft)
+                    return FindMinimum(parent.Left);
+
+                return parent;
+
+            }
+            else if (order < 0)
+            {
+                parent = node;
+                return FindPreOrderPredecessor(node.Left, item, parent);
+            }
+            else
+            {
+                parent = node;
+                return FindPreOrderPredecessor(node.Right, item, parent);
+            }
+
+        }
+
+        public Node<T> PreOrderPredecessor(T item)
+        {
+            return FindPreOrderPredecessor(root, item, null);
+        }
+
+        internal virtual Node<T> FindPreOrderSucessor(Node<T> node, T item, Stack<Node<T>> parents)
+        {
+            //25,15,10,4,12,22,18,24,50,35,31,44,70,66,90
+            if (node == null)
+                return null;
+            var order = comparer.Compare(item, node.Item);
+
+            if (order == 0)
             {
 
-                if(node.Left is not null ) return node.Left;
-                else if(node.Right is not null) return node.Right;
+                if (node.Left is not null) return node.Left;
+                else if (node.Right is not null) return node.Right;
                 else
                 {
                     //node is a leaf node ans is is ancestor which has a right subtree
-                    var current  = node;
-                    var parent = parents.Any() ? parents.Peek() : null;;
+                    var current = node;
+                    var parent = parents.Any() ? parents.Peek() : null; ;
 
-                    while(parents.Count > 0 && parent.Right == current)
+                    while (parents.Count > 0 && parent.Right == current)
                     {
-                        parent = parents.Pop();   
-                         current = parent;
+                        parent = parents.Pop();
+                        current = parent;
                     }
 
-                // If we reached root, then the given
-                // node has no preorder successor
-                 if (parent == null)
-                    return null;
- 
-                return parent.Right;
+                    // If we reached root, then the given
+                    // node has no preorder successor
+                    if (parent == null)
+                        return null;
+
+                    return parent.Right;
 
                 }
             }
-            else if(order < 0)
+            else if (order < 0)
             {
                 parents.Push(node);
-                return FindPreOrderSucessor(node.Left,item,parents);
+                return FindPreOrderSucessor(node.Left, item, parents);
             }
             else
             {
                 parents.Push(node);
-                return FindPreOrderSucessor(node.Right,item,parents);
+                return FindPreOrderSucessor(node.Right, item, parents);
             }
-            
+
         }
 
         public Node<T> PreOrderSucessor(T item)
         {
             Stack<Node<T>> stack = new Stack<Node<T>>();
 
-            return FindPreOrderSucessor(root,item,stack);
+            return FindPreOrderSucessor(root, item, stack);
         }
 
 
@@ -320,51 +462,51 @@ namespace Binary_Search_Tree
 
         }
 
-        internal virtual Node<T> FindPostOrderSucessor(Node<T> node,T item,Node<T> parent)
+        internal virtual Node<T> FindPostOrderSucessor(Node<T> node, T item, Node<T> parent)
         {
             //25,15,10,4,12,22,18,24,50,35,31,44,70,66,90
             if (node == null)
                 return null;
-            var order = comparer.Compare(item,node.Item);
-            
-            if(order == 0)
+            var order = comparer.Compare(item, node.Item);
+
+            if (order == 0)
             {
                 var isLeft = false;
-                if(parent == null ) return null;
+                if (parent == null) return null;
 
-                if(parent.Left is null) return parent;
+                if (parent.Left is null) return parent;
 
-                if(parent.Right is null) return parent;
+                if (parent.Right is null) return parent;
 
-                
+
                 // We found the element with both left and right nodes
 
-                isLeft = comparer.Compare(item,parent.Left.Item) == 0 ? true : false;
+                isLeft = comparer.Compare(item, parent.Left.Item) == 0 ? true : false;
 
-                if(isLeft)
+                if (isLeft)
                     FindMinimum(parent.Right);
 
                 return parent;
 
             }
-            else if(order < 0)
+            else if (order < 0)
             {
-                parent =node;
-                return FindPostOrderSucessor(node.Left,item,parent);
+                parent = node;
+                return FindPostOrderSucessor(node.Left, item, parent);
             }
             else
             {
-                parent =node;
-                return FindPostOrderSucessor(node.Right,item,parent);
+                parent = node;
+                return FindPostOrderSucessor(node.Right, item, parent);
             }
-            
+
         }
 
         public Node<T> PostOrderSucessor(T item)
         {
-            
 
-            return FindPostOrderSucessor(root,item,null);
+
+            return FindPostOrderSucessor(root, item, null);
         }
 
         public void Validate()
